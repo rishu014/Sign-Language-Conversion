@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Conversion</title>
+    <style>
+        
+.hoverable {
+  display: inline-block;
+  backface-visibility: hidden;
+  vertical-align: middle;
+  position: relative;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-tranform: translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+
+.hoverable:before {
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  content: "";
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+  /* W3C */
+  transition-duration: 0.3s;
+  transition-property: transform, opacity;
+}
+
+.hoverable:hover, .hoverable:active, .hoverable:focus {
+  transform: translateY(-5px);
+}
+
+.hoverable:hover:before, .hoverable:active:before, .hoverable:focus:before {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+@keyframes bounce-animation {
+  16.65% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+  }
+  33.3% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+  }
+  49.95% {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+  }
+  66.6% {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+  }
+  83.25% {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+.bounce {
+  animation-name: bounce-animation;
+  animation-duration: 2s;
+}
+.content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100vw;
+}
+#scrip{
+       display: none;
+       background-color:black;
+       color:whitesmoke;
+       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+       text-align: center;
+       font-size: large;
+       font-weight: 400;
+       padding: 4%;
+       width:25em;
+       border-radius: 1vh;
+       box-shadow: 0 0 0.8em 0;
+       height:5em; 
+       
+   }
+
+/*everything below here is just setting up the page, so dont worry about it */
+@media (min-width: 768px) {
+  .navbar {
+    text-align: center !important;
+    float: none;
+    display: inline-block;
+  }
+}
+body {
+  background-color: #161b22;
+  font-weight: 600;
+  text-align: center !important;
+  color: white;
+}
+
+nav {
+  background: none !important;
+  text-transform: uppercase;
+  
+}
+
+nav a {
+  margin-left: 5em;
+  margin-right: 5em;
+  transition: 0.5s color ease-in-out;
+  display: flex;
+  color : white;
+  text-decoration: none;
+}
+
+.page-title {
+  opacity: 0.75 !important;
+}
+.buttons{
+       margin: 45px;
+   }
+
+   .btn1,.btn2,.btn3,.btn4,.btn5{
+       padding:1em 2em;
+       margin:15px 3em;
+       color:white;
+       width: 150px;
+       background-color: darkblue;
+       border:none;
+       border-radius: 1vh;
+       
+    }
+    .btn2 a,.btn3 a,.btn4 a,.btn5 a{
+        text-decoration: none;
+        color:white;
+   }
+
+    </style>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <a id="len1" class="hoverable" href="home">Home</a>
+          <a id="len2" class="hoverable" href="about">About</a>
+          <a id="len3" class="hoverable" href="developers">developers</a>
+          <a id="len4" class="hoverable" href="contact">Contact</a>
+        </ul>
+      </div>
+    </nav>
+    <div id="NEW">
+      <div class="page-title">
+        <h1>SIGN CONVERSION</h1>
+
+      </div>
+      <!-- buttons -->
+    <div class="buttons">
+      <button class='btn2'> <a href='/camera_feed'>Camera Feed</a> </button>
+      <button class='btn4'> <a href='/saving'>save</a> </button>
+      <button class='btn1'onclick="server.data()" > Show Text </button>
+      <button class='btn5'> <a href='/speaks'>speak output</a> </button>
+      <button class='btn3'> <a href='/clear'>clear</a> </button>
+      
+      
+      <!-- <button class='btn5'> <a href=''>lorem</a> </button> -->
+    </div>
+    </div>
+  </div>
+  <script></script>
+    <div class="content">
+        <div id="scrip" >
+        </div>
+    </div>
+</body>
+
+</html>
